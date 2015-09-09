@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Tentative SSHFS buildpack"
+echo $1
