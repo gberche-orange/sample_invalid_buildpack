@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
+
 # bin/compile <build-dir> <cache-dir> <env-dir>
+
+
 echo "Compile echoing on stdout"
 date
 echo "Compile echoing on stderr" 1>&2
 date
+
 echo "Environment variables during compile"
 env
+
+
 sleep 1 # give loggregator time to start streaming the logs
+
 echo "Compile echoing on stdout after waiting 1s"
+
 if [ -n "${SLEEP+1}" ]; then
-echo "sleeping ${SLEEP}"; sleep ${SLEEP};
+    echo "sleeping ${SLEEP}"; sleep ${SLEEP};
 else
-echo "you may choose to sleep by defining the SLEEP env var"
+    echo "you may choose to sleep by defining the SLEEP env var"
 fi;
