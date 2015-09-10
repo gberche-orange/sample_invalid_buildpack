@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-echo "Release"
+cat <<EOF
+---
+config_vars:
+  PATH: bin:/usr/local/bin:/usr/bin:/bin
+  FROM_BUILD_PACK: "yes"
+default_process_types:
+  web: echo "stdout echoing in release cmd" && env && if [ -n "${FAIL+1}" ]; then echo "failing on purpose in the release command with exit 1"; exit 1; fi && echo "stderr echoing in release cmd" 1>&2 && while true; do { echo -e 'HTTP/1.1 200 OK\r\n'; echo "hi from a diag buildpack"; } | nc -l \$PORT; done
+EOF
