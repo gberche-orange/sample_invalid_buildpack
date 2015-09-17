@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-echo "Tentative SSHFS buildpack"
-echo $1
+echo "A dummy framework name"
